@@ -1,5 +1,5 @@
 name: axeman # check to see if it's available
-adopt-info: axeman # 
+version: '+git' # 
 summary: Axeman is a utility for downloading, parsing, and storing CTL's # 79 char long summary
 description: |
   Axeman is a utility for downloading, parsing, and storing Certificate Transparency Lists using python3's concurrency and multi-processing. Its aim is to download and parse certificates relatively quickly and efficiently, storing them in CSVs on the local filesystem.
@@ -23,7 +23,6 @@ parts:
     source-type: git
     plugin: python
     python-version: python3
-    parse-info: [setup.py]
     
     build-packages:
       - python3
