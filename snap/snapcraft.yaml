@@ -4,11 +4,12 @@ summary: Axeman is a utility for downloading, parsing, and storing CTLs
 description: |
   Axeman is a utility for downloading, parsing, and storing Certificate Transparency Lists using python3's concurrency and multi-processing. 
   Its aim is to download and parse certificates relatively quickly and efficiently, storing them in CSVs on the local filesystem.
-grade: stable
-confinement: strict
-base: core18
 
 license: MIT
+
+base: core18
+grade: stable
+confinement: strict
 
 architectures:
 - build-on: amd64
