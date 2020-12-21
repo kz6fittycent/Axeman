@@ -6,6 +6,9 @@ description: |
   Its aim is to download and parse certificates relatively quickly and efficiently, storing them in CSVs on the local filesystem.
 grade: stable
 confinement: strict
+base: core18
+
+license: MIT
 
 architectures:
 - build-on: amd64
