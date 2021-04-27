@@ -7,7 +7,7 @@ description: |
 
 license: MIT
 
-base: core18
+base: core20
 grade: stable
 confinement: strict
 
@@ -30,7 +30,6 @@ parts:
     source: https://github.com/CaliDog/Axeman
     source-type: git
     plugin: python
-    python-version: python3
     requirements: [requirements.txt]
     
     override-pull: |
