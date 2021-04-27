@@ -16,7 +16,7 @@ architectures:
 
 apps:
   axeman:
-    command: usr/bin/axeman
+    command: bin/axeman
     environment:
       LC_ALL: C.UTF-8
       LANG: C.UTF-8
