@@ -34,7 +34,9 @@ parts:
     source: https://github.com/CaliDog/Axeman
     source-type: git
     plugin: python
-  
+    python-requirements:
+      - requirements.txt
+      
     override-pull: |
       craftctl default
       craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"
