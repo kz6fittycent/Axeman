@@ -9,7 +9,7 @@ license: MIT
 contact: https://github.com/kz6fittycent/Axeman
 issues: https://github.com/kz6fittycent/Axeman/issues
 source-code: https://github.com/CaliDog/Axeman
-base: core24
+base: core22
 grade: stable
 confinement: strict
 
