@@ -6,13 +6,17 @@ description: |
   Its aim is to download and parse certificates relatively quickly and efficiently, storing them in CSVs on the local filesystem.
 
 license: MIT
-
-base: core20
+contact: https://github.com/kz6fittycent/Axeman
+issues: https://github.com/kz6fittycent/Axeman/issues
+source-code: https://github.com/CaliDog/Axeman
+base: core24
 grade: stable
 confinement: strict
 
-architectures:
-- build-on: amd64
+platforms:
+  amd64:
+    build-on: [amd64]
+    build-for: [amd64]
 
 apps:
   axeman:
@@ -33,8 +37,8 @@ parts:
     requirements: [requirements.txt]
     
     override-pull: |
-      snapcraftctl pull
-      snapcraftctl set-version "$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"
+      craftctl default
+      craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"
     
     build-packages:
       - python3
