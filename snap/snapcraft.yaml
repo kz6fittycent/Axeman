@@ -1,53 +1,50 @@
 name: axeman 
-adopt-info: axeman
-summary: Axeman is a utility for downloading, parsing, and storing CTLs
-description: |
-  Axeman is a utility for downloading, parsing, and storing Certificate Transparency Lists using python3's concurrency and multi-processing. 
-  Its aim is to download and parse certificates relatively quickly and efficiently, storing them in CSVs on the local filesystem.
-
-license: MIT
-contact: https://github.com/kz6fittycent/Axeman
-issues: https://github.com/kz6fittycent/Axeman/issues
-source-code: https://github.com/CaliDog/Axeman
-base: core24
-grade: stable
-confinement: strict
-
-platforms:
-  amd64:
-    build-on: [amd64]
-    build-for: [amd64]
-
-apps:
-  axeman:
-    command: bin/axeman
-    environment:
-      LC_ALL: C.UTF-8
-      LANG: C.UTF-8
-      PYTHONPATH: $SNAP/usr/lib/python3/site-packages    
-    plugs:
-      - home
-      - network
+ adopt-info: axeman
+ summary: Axeman is a utility for downloading, parsing, and storing CTLs
+ description: |
+   Axeman is a utility for downloading, parsing, and storing Certificate Transparency Lists using python3's concurrency and multi-processing. 
+   Its aim is to download and parse certificates relatively quickly and efficiently, storing them in CSVs on the local filesystem.
+ 
+ license: MIT
+ contact: https://github.com/kz6fittycent/Axeman
+ issues: https://github.com/kz6fittycent/Axeman/issues
+ source-code: https://github.com/CaliDog/Axeman
+ base: core22
+ grade: stable
+ confinement: strict
+ 
+ platforms:
+   amd64:
+     build-on: [amd64]
+     build-for: [amd64]
+ architectures:
+   - build-on: amd64
+ 
+ apps:
+   axeman:
+     command: bin/axeman
+     environment:
+       LC_ALL: C.UTF-8
+       LANG: C.UTF-8
+       PYTHONPATH: $SNAP/usr/lib/python3/site-packages    
+     plugs:
+       - home
+       - network
+ 
+ parts: 
+   axeman:
+     source: https://github.com/CaliDog/Axeman
+     source-type: git
+     plugin: python
+     python-requirements:
+       - requirements.txt
+ 
+     override-pull: |
+       craftctl default
+       craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"
      
-parts: 
-  axeman:
-    source: https://github.com/CaliDog/Axeman
-    source-type: git
-    plugin: python
-    python-packages:
-      - asyncio
-      - uvloop
-      - aiohttp
-      - aioprocessing
-      - PyOpenSSL
-      - construct
-      
-    override-pull: |
-      craftctl default
-      craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"
-    
-    build-packages:
-      - python3
-      
-    stage-packages:
-      - python3
+     build-packages:
+       - python3
+ 
+     stage-packages:
+       - python3
