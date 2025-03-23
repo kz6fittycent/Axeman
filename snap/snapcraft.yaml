@@ -34,8 +34,13 @@ parts:
     source: https://github.com/CaliDog/Axeman
     source-type: git
     plugin: python
-    python-requirements:
-      - requirements.txt
+    python-packages:
+      - asyncio
+      - uvloop
+      - aiohttp
+      - aioprocessing
+      - PyOpenSSL
+      - construct
       
     override-pull: |
       craftctl default
