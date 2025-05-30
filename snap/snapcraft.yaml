@@ -13,9 +13,6 @@ name: axeman
  grade: stable
  confinement: strict
  
- architectures:
-   - build-on: amd64
- 
  apps:
    axeman:
      command: bin/axeman
